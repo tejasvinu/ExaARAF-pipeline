@@ -7,7 +7,7 @@ services:
       # Added volume for Prometheus data persistence
       - prometheus_data:/prometheus
     ports:
-      - "9091:9090"  # Changed external port to 9091
+      - "9099:9090"  # Changed from 9091 to 9099 (uncommon port)
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -140,7 +140,7 @@ services:
       # Expose external port for clients (adjust host port if needed)
       - "9092:9092"
     volumes:
-      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:rw
       - kafka_logs_1:/var/log/kafka # Unique log volume per broker recommended
       - kafka_data_1:/var/lib/kafka/data # Added persistent data volume
     environment:
@@ -195,9 +195,9 @@ services:
       zookeeper-3: { condition: service_healthy }
     ports:
       # Map different host port for external access if needed
-      - "9093:9092"
+      - "9097:9092"  # Changed from 9093 to 9097 (uncommon port)
     volumes:
-      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:rw
       - kafka_logs_2:/var/log/kafka
       - kafka_data_2:/var/lib/kafka/data
     environment:
@@ -206,7 +206,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_LISTENERS: INTERNAL://:19092,EXTERNAL://:9092
       # !! IMPORTANT: Replace 'localhost' with your Docker host IP/DNS if clients are external to the host !!
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-2:19092,EXTERNAL://localhost:9093 # Note different external port
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-2:19092,EXTERNAL://localhost:9097  # Updated to match new port
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_DEFAULT_REPLICATION_FACTOR: 3
@@ -248,7 +248,7 @@ services:
       # Map different host port for external access if needed
       - "9095:9092"  # Changed from 9094 to 9095
     volumes:
-      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:rw
       - kafka_logs_3:/var/log/kafka
       - kafka_data_3:/var/lib/kafka/data
     environment:

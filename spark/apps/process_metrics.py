@@ -44,7 +44,7 @@ def process_metrics(spark, topic_name, metric_type):
         df = spark \
             .readStream \
             .format("kafka") \
-            .option("kafka.bootstrap.servers", "localhost:9092,localhost:9093,localhost:9095") \
+            .option("kafka.bootstrap.servers", "localhost:9092,localhost:9097,localhost:9095") \
             .option("subscribe", topic_name) \
             .option("startingOffsets", "earliest") \
             .option("failOnDataLoss", "false") \

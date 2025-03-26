@@ -21,7 +21,7 @@ logging.basicConfig(
 logger = logging.getLogger('producer')
 
 class MetricsProducer:
-    def __init__(self, bootstrap_servers='localhost:9092,localhost:9093,localhost:9095'):
+    def __init__(self, bootstrap_servers='localhost:9092,localhost:9097,localhost:9095'):
         # Configure Kafka producer with reliability settings
         self.producer = KafkaProducer(
             bootstrap_servers=bootstrap_servers,

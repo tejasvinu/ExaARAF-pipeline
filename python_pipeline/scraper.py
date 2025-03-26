@@ -23,7 +23,7 @@ file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelnam
 logger.addHandler(file_handler)
 
 class PrometheusMetricsScraper:
-    def __init__(self, prometheus_url="http://localhost:9091"):  # Updated port to 9091
+    def __init__(self, prometheus_url="http://localhost:9099"):  # Updated port to 9099
         self.prometheus_url = prometheus_url
         self.job_configs = {
             "ipmi": {
