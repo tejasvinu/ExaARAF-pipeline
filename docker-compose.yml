@@ -407,6 +407,8 @@ services:
 
   cassandra-2:
     image: cassandra:4.0
+    ports:
+      - "9043:9042" # Changed from 9042 to 9043 (uncommon port)
     volumes:
       - cassandra_data_2:/var/lib/cassandra
     environment:
@@ -441,6 +443,8 @@ services:
 
   cassandra-3:
     image: cassandra:4.0
+    ports:
+      - "9044:9042" # Changed from 9042 to 9044 (uncommon port)
     volumes:
       - cassandra_data_3:/var/lib/cassandra
     environment:
