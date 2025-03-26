@@ -93,12 +93,12 @@ class MetricsConsumer:
         # Configure adaptive batch sizes based on metric type
         self.batch_configs = {
             "node": {
-                "batch_size": 100,  # Increased for better throughput
-                "chunk_size": 25,
-                "max_concurrent": cpu_count * 2
+                "batch_size": 50,  # Reduced from 100 to stay under 5120 byte limit
+                "chunk_size": 10,  # Reduced from 25
+                "max_concurrent": cpu_count
             },
             "default": {
-                "batch_size": 50,  # Increased default batch size
+                "batch_size": 50,
                 "chunk_size": 10,
                 "max_concurrent": cpu_count
             }
@@ -202,9 +202,10 @@ class MetricsConsumer:
             return
             
         batch_config = self._get_batch_config(metric_type)
+        # Use fully qualified table name
         prepared = self.session.prepare(
             f"""
-            INSERT INTO {metric_type}_metrics 
+            INSERT INTO metrics.{metric_type}_metrics 
             (metric_date, window_start, window_end, name, labels, avg_value, max_value, min_value)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """

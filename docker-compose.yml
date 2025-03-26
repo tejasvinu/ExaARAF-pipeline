@@ -3,8 +3,7 @@ services:
   prometheus:
     image: prom/prometheus:v2.37.0
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      # Added volume for Prometheus data persistence
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
     ports:
       - "9099:9090"  # Changed from 9091 to 9099 (uncommon port)
@@ -13,10 +12,8 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
-      # Removed --enable-feature=remote-write-receiver unless needed for other sources
-      # Ensure prometheus.yml has remote_write pointing to prometheus-kafka-adapter:
-      # remote_write:
-      #  - url: "http://prometheus-kafka-adapter:8080/receive"
+      - '--web.enable-lifecycle'  # Enable HTTP endpoints for runtime management
+      - '--storage.tsdb.retention.time=15d'  # Set retention period
     restart: unless-stopped
     networks:
       - pipeline-network
@@ -339,7 +336,7 @@ services:
   prometheus-kafka-adapter:
     image: telefonica/prometheus-kafka-adapter:1.8.0
     ports:
-      - "8080:8080" # Internal port for Prometheus remote_write
+      - "8089:8080" # Changed from 8080 to avoid conflicts
     depends_on:
       # Wait for Kafka brokers to be healthy
       kafka-1: { condition: service_healthy }
