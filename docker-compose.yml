@@ -45,7 +45,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_SERVER_ID: 1
-      ZOOKEEPER_SERVERS: server.1=zookeeper-1:2888:3888;2181 server.2=zookeeper-2:2888:3888;2181 server.3=zookeeper-3:2888:3888;2181
+      ZOOKEEPER_SERVERS: "server.1=zookeeper-1:2888:3888 server.2=zookeeper-2:2888:3888 server.3=zookeeper-3:2888:3888"
       TZ: "Asia/Kolkata"
     restart: unless-stopped
     networks:
@@ -72,7 +72,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_SERVER_ID: 2
-      ZOOKEEPER_SERVERS: server.1=zookeeper-1:2888:3888;2181 server.2=zookeeper-2:2888:3888;2181 server.3=zookeeper-3:2888:3888;2181
+      ZOOKEEPER_SERVERS: "server.1=zookeeper-1:2888:3888 server.2=zookeeper-2:2888:3888 server.3=zookeeper-3:2888:3888"
       TZ: "Asia/Kolkata"
     restart: unless-stopped
     networks:
@@ -99,7 +99,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_SERVER_ID: 3
-      ZOOKEEPER_SERVERS: server.1=zookeeper-1:2888:3888;2181 server.2=zookeeper-2:2888:3888;2181 server.3=zookeeper-3:2888:3888;2181
+      ZOOKEEPER_SERVERS: "server.1=zookeeper-1:2888:3888 server.2=zookeeper-2:2888:3888 server.3=zookeeper-3:2888:3888"
       TZ: "Asia/Kolkata"
     restart: unless-stopped
     networks:
@@ -131,7 +131,7 @@ services:
       # Expose external port for clients (adjust host port if needed)
       - "9092:9092"
     volumes:
-      - ./kafka/log4j.properties:/opt/bitnami/kafka/config/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
       - kafka_logs_1:/var/log/kafka # Unique log volume per broker recommended
       - kafka_data_1:/var/lib/kafka/data # Added persistent data volume
     environment:
@@ -147,8 +147,8 @@ services:
       # Reliability settings
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      # Logging
-      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/opt/bitnami/kafka/config/log4j.properties"
+      # Logging - use correct path for confluentinc image
+      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
       KAFKA_OPTS: "-Dkafka.logs.dir=/var/log/kafka"
       # Performance tuning (adjust based on monitoring)
       KAFKA_NUM_PARTITIONS: 4 # Default partitions for auto-created topics
@@ -188,7 +188,7 @@ services:
       # Map different host port for external access if needed
       - "9093:9092"
     volumes:
-      - ./kafka/log4j.properties:/opt/bitnami/kafka/config/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
       - kafka_logs_2:/var/log/kafka
       - kafka_data_2:/var/lib/kafka/data
     environment:
@@ -201,7 +201,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/opt/bitnami/kafka/config/log4j.properties"
+      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
       KAFKA_OPTS: "-Dkafka.logs.dir=/var/log/kafka"
       KAFKA_NUM_PARTITIONS: 4
       KAFKA_MESSAGE_MAX_BYTES: 5000000
@@ -239,7 +239,7 @@ services:
       # Map different host port for external access if needed
       - "9094:9092"
     volumes:
-      - ./kafka/log4j.properties:/opt/bitnami/kafka/config/log4j.properties:ro
+      - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
       - kafka_logs_3:/var/log/kafka
       - kafka_data_3:/var/lib/kafka/data
     environment:
@@ -252,7 +252,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/opt/bitnami/kafka/config/log4j.properties"
+      KAFKA_LOG4J_OPTS: "-Dlog4j.configuration=file:/etc/kafka/log4j.properties"
       KAFKA_OPTS: "-Dkafka.logs.dir=/var/log/kafka"
       KAFKA_NUM_PARTITIONS: 4
       KAFKA_MESSAGE_MAX_BYTES: 5000000
@@ -353,25 +353,21 @@ services:
       # Expose CQL port only on one node for easier debugging if needed
       - "9042:9042"
     volumes:
-      # Mount config files - MANAGE TUNING HERE
-      - ./cassandra/conf/cassandra.yaml:/etc/cassandra/cassandra.yaml
-      - ./cassandra/conf/cassandra-env.sh:/etc/cassandra/cassandra-env.sh
-      # Unique data volume per node
+      # Only use the data volume, don't try to mount config files
       - cassandra_data_1:/var/lib/cassandra
     environment:
       # Define cluster name and seeds (point to itself and another node)
       - CASSANDRA_CLUSTER_NAME=MetricsCluster
       - CASSANDRA_SEEDS=cassandra-1,cassandra-2
-      - CASSANDRA_DC=dc1 # Optional: Define datacenter name
-      - CASSANDRA_RACK=rack1 # Optional: Define rack name
-      # Heap settings can be set in cassandra-env.sh via JVM_OPTS, e.g.:
-      # JVM_OPTS="$JVM_OPTS -Xms4G -Xmx4G -Xmn800M"
-      # Remove most tuning ENV vars - configure in cassandra.yaml
+      - CASSANDRA_DC=dc1
+      - CASSANDRA_RACK=rack1
       - TZ=Asia/Kolkata
+      # Add JVM options directly via env var
+      - JVM_OPTS=-Xms2G -Xmx2G
     restart: unless-stopped
     networks:
       - pipeline-network
-    ulimits: # Keep necessary ulimits
+    ulimits:
       memlock: -1
       nproc: 65536
       nofile: 200000
@@ -386,20 +382,19 @@ services:
       interval: 30s
       timeout: 15s
       retries: 5
-      start_period: 120s # Cassandra can take time to start
+      start_period: 120s
 
   cassandra-2:
     image: cassandra:4.0
     volumes:
-      - ./cassandra/conf/cassandra.yaml:/etc/cassandra/cassandra.yaml
-      - ./cassandra/conf/cassandra-env.sh:/etc/cassandra/cassandra-env.sh
       - cassandra_data_2:/var/lib/cassandra
     environment:
       - CASSANDRA_CLUSTER_NAME=MetricsCluster
-      - CASSANDRA_SEEDS=cassandra-1,cassandra-2 # All nodes point to same seeds
+      - CASSANDRA_SEEDS=cassandra-1,cassandra-2
       - CASSANDRA_DC=dc1
       - CASSANDRA_RACK=rack1
       - TZ=Asia/Kolkata
+      - JVM_OPTS=-Xms2G -Xmx2G
     depends_on:
       # Wait for seed node(s) to start
       cassandra-1: { condition: service_started }
@@ -426,19 +421,18 @@ services:
   cassandra-3:
     image: cassandra:4.0
     volumes:
-      - ./cassandra/conf/cassandra.yaml:/etc/cassandra/cassandra.yaml
-      - ./cassandra/conf/cassandra-env.sh:/etc/cassandra/cassandra-env.sh
       - cassandra_data_3:/var/lib/cassandra
     environment:
       - CASSANDRA_CLUSTER_NAME=MetricsCluster
-      - CASSANDRA_SEEDS=cassandra-1,cassandra-2 # All nodes point to same seeds
+      - CASSANDRA_SEEDS=cassandra-1,cassandra-2
       - CASSANDRA_DC=dc1
       - CASSANDRA_RACK=rack1
       - TZ=Asia/Kolkata
+      - JVM_OPTS=-Xms2G -Xmx2G
     depends_on:
       # Wait for seed node(s) to start
       cassandra-1: { condition: service_started }
-      cassandra-2: { condition: service_started } # Depends on the other non-seed too
+      cassandra-2: { condition: service_started }
     restart: unless-stopped
     networks:
       - pipeline-network
