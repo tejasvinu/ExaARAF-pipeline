@@ -1,0 +1,9 @@
+requests==2.31.0
+kafka-python==2.1.2
+six==1.16.0
+cassandra-driver==3.28.0
+pytz==2023.3
+lz4==4.3.2
+psutil==5.9.8  # For process monitoring
+prometheus-client==0.19.0  # For better Prometheus integration
+retry==0.9.2  # For improved retry logic
