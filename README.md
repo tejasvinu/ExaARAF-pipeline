@@ -23,7 +23,7 @@ chmod +x setup.sh
 
 ## Monitoring the Pipeline
 
-- Prometheus UI: http://localhost:9090
+- Prometheus UI: http://localhost:9091
 - Spark Master UI: http://localhost:8082
 - Kafka: Accessible on localhost:29092 (for local applications)
 
