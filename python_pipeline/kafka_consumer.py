@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger('consumer')
 
 class MetricsConsumer:
-    def __init__(self, bootstrap_servers='localhost:9092,localhost:9093,localhost:9094', cassandra_host='localhost'):
+    def __init__(self, bootstrap_servers='localhost:9092,localhost:9093,localhost:9095', cassandra_host='localhost'):
         self.bootstrap_servers = bootstrap_servers
         self.cassandra_host = cassandra_host
         self.consumers = {}

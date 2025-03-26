@@ -246,7 +246,7 @@ services:
       zookeeper-3: { condition: service_healthy }
     ports:
       # Map different host port for external access if needed
-      - "9094:9092"
+      - "9095:9092"  # Changed from 9094 to 9095
     volumes:
       - ./kafka/log4j.properties:/etc/kafka/log4j.properties:ro
       - kafka_logs_3:/var/log/kafka
@@ -257,7 +257,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_LISTENERS: INTERNAL://:19092,EXTERNAL://:9092
       # !! IMPORTANT: Replace 'localhost' with your Docker host IP/DNS if clients are external to the host !!
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-3:19092,EXTERNAL://localhost:9094 # Note different external port
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka-3:19092,EXTERNAL://localhost:9095 # Changed port to match new external port
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_DEFAULT_REPLICATION_FACTOR: 3
