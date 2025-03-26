@@ -140,12 +140,14 @@ services:
       # Expose external port for clients (adjust host port if needed)
       - "9092:9092"
     volumes:
-      - type: bind
-        source: ./kafka/log4j.properties
-        target: /etc/kafka/log4j.properties
-        read_only: false
       - kafka_logs_1:/var/log/kafka # Unique log volume per broker recommended
       - kafka_data_1:/var/lib/kafka/data # Added persistent data volume
+    command: >
+      bash -c '
+        mkdir -p /etc/kafka &&
+        cp /etc/confluent/docker/log4j.properties.template /etc/kafka/log4j.properties &&
+        chmod 666 /etc/kafka/log4j.properties &&
+        /etc/confluent/docker/run'
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181
@@ -200,12 +202,14 @@ services:
       # Map different host port for external access if needed
       - "9097:9092"  # Changed from 9093 to 9097 (uncommon port)
     volumes:
-      - type: bind
-        source: ./kafka/log4j.properties
-        target: /etc/kafka/log4j.properties
-        read_only: false
       - kafka_logs_2:/var/log/kafka
       - kafka_data_2:/var/lib/kafka/data
+    command: >
+      bash -c '
+        mkdir -p /etc/kafka &&
+        cp /etc/confluent/docker/log4j.properties.template /etc/kafka/log4j.properties &&
+        chmod 666 /etc/kafka/log4j.properties &&
+        /etc/confluent/docker/run'
     environment:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181
@@ -254,12 +258,14 @@ services:
       # Map different host port for external access if needed
       - "9095:9092"  # Changed from 9094 to 9095
     volumes:
-      - type: bind
-        source: ./kafka/log4j.properties
-        target: /etc/kafka/log4j.properties
-        read_only: false
       - kafka_logs_3:/var/log/kafka
       - kafka_data_3:/var/lib/kafka/data
+    command: >
+      bash -c '
+        mkdir -p /etc/kafka &&
+        cp /etc/confluent/docker/log4j.properties.template /etc/kafka/log4j.properties &&
+        chmod 666 /etc/kafka/log4j.properties &&
+        /etc/confluent/docker/run'
     environment:
       KAFKA_BROKER_ID: 3
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-1:2181,zookeeper-2:2181,zookeeper-3:2181
