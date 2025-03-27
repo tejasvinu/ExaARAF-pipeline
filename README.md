@@ -1,64 +1,104 @@
-# ExaARAF Pipeline
+# ExaARAF Metrics Pipeline
 
-A complete data pipeline using Docker, Prometheus, Kafka, Spark, and InfluxDB.
+A simplified metrics collection pipeline for ExaARAF that collects metrics from various exporters, processes them with Telegraf, and stores them in InfluxDB.
 
 ## Architecture
 
-1. **Prometheus** scrapes metrics from 4 endpoints (IPMI, Node, DCGM, and SLURM exporters)
-2. **Prometheus Kafka Adapter** forwards metrics to Kafka topics
-3. **Kafka** streams data to be consumed by Telegraf and Spark
-4. **Telegraf** processes and forwards metrics to InfluxDB
-5. **InfluxDB** stores the time-series data for visualization and analysis
-6. **Spark** (optional) provides additional processing capabilities
+The pipeline follows a simple and efficient architecture:
+
+```
+Exporters → Prometheus → Telegraf → InfluxDB
+```
+
+- **Exporters**: IPMI, Node, DCGM, and Slurm exporters collect system metrics
+- **Prometheus**: Scrapes metrics from exporters and stores them temporarily
+- **Telegraf**: Queries metrics from Prometheus and processes them
+- **InfluxDB**: Time-series database for long-term metrics storage and visualization
 
 ## Setup Instructions
 
-1. Ensure Docker and Docker Compose are installed on your system
+1. Make sure Docker and Docker Compose are installed
 2. Clone this repository
 3. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
+4. Verify that the pipeline is working:
+   ```bash
+   ./check_pipeline.sh
+   ```
 
-```bash
-chmod +x setup.sh
-./setup.sh
-```
+## Accessing Dashboards
 
-## Monitoring the Pipeline
-
-- Prometheus UI: http://localhost:9099
 - InfluxDB UI: http://localhost:8086
-- Spark Master UI: http://localhost:8082
-- Kafka: Accessible on localhost:9092 (for local applications)
-- Additional Kafka brokers: localhost:9097, localhost:9095
+  - Username: admin
+  - Password: adminpassword123
+  - Organization: metrics_org
+  - Bucket: metrics_bucket
+- Prometheus UI: http://localhost:9099
 
-## Accessing the Data
+## Metrics Collected
 
-You can query InfluxDB directly through its web interface at http://localhost:8086, or use the InfluxDB API with the following credentials:
+This pipeline collects the following metrics:
 
-- Organization: metrics_org
-- Bucket: metrics_bucket
-- Username: admin
-- Password: adminpassword123
-- Token: my-super-secret-auth-token
+### IPMI Metrics
+- Temperature readings from IPMI sensors
+- Fan speeds
+- Power consumption
+- Sensor states
 
-Example InfluxDB query using the Flux query language:
-```flux
-from(bucket: "metrics_bucket")
-  |> range(start: -1h)
-  |> filter(fn: (r) => r["_measurement"] == "ipmi_metrics")
-  |> yield()
+### Node Metrics
+- CPU usage
+- Memory usage
+- Disk space
+- Network I/O
+
+### DCGM (GPU) Metrics
+- GPU temperature
+- GPU utilization
+- Memory usage
+- Power usage
+
+### Slurm Metrics
+- Allocated nodes
+- Idle nodes
+- Running jobs
+- Pending jobs
+
+## Configuration Files
+
+- `docker-compose.yml`: Defines the Docker containers for Prometheus, Telegraf, and InfluxDB
+- `prometheus/prometheus.yml`: Configures Prometheus to scrape exporters
+- `telegraf/telegraf.conf`: Configures Telegraf to collect metrics from Prometheus and forward to InfluxDB
+
+## Maintenance
+
+To check the status of the pipeline:
+```bash
+./check_pipeline.sh
 ```
 
-## Component Details
+To restart the pipeline:
+```bash
+docker-compose down
+docker-compose up -d
+```
 
-- **Prometheus**: Configured to scrape metrics from the specified endpoints
-- **Kafka**: Set up with four topics (ipmi_metrics, node_metrics, dcgm_metrics, slurm_metrics)
-- **Telegraf**: Processes Kafka messages and writes to InfluxDB
-- **InfluxDB**: Stores time-series metrics with high performance and compression
-- **Spark**: (Optional) Provides additional data processing capabilities
+## Troubleshooting
 
-## Customization
+- Check container logs:
+  ```bash
+  docker logs exaarafpipeline-prometheus-1
+  docker logs exaarafpipeline-telegraf-1
+  docker logs exaarafpipeline-influxdb-1
+  ```
 
-Edit the corresponding configuration files to customize:
-- Prometheus scrape targets: `prometheus/prometheus.yml`
-- Telegraf configuration: `telegraf/telegraf.conf`
-- Spark processing logic: `spark/apps/process_metrics.py`
+- Validate Telegraf configuration:
+  ```bash
+  docker exec exaarafpipeline-telegraf-1 telegraf --test
+  ```
+
+- Check Prometheus targets:
+  ```bash
+  curl http://localhost:9099/api/v1/targets
+  ```

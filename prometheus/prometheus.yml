@@ -2,10 +2,6 @@ global:
   scrape_interval: 15s
   evaluation_interval: 15s
 
-# Remote write configuration to send metrics to Kafka
-remote_write:
-  - url: "http://prometheus-kafka-adapter:8080/receive"
-
 # Scrape configurations
 scrape_configs:
   - job_name: 'ipmi-exporter'
