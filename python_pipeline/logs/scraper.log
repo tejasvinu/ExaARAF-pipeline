@@ -8461,3 +8461,67 @@
 2025-03-27 14:54:43,570 - scraper - INFO -   - Metrics collected: 97
 2025-03-27 14:54:43,571 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
 2025-03-27 14:54:43,571 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29081498776.0}
+2025-03-27 14:54:58,137 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:54:58,138 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:54:58,139 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,140 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:58,291 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:54:58,293 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:54:58,293 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,294 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:58,473 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:54:58,474 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:54:58,474 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:54:58,474 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:54:58,583 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:54:58,584 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:54:58,584 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,584 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29091531576.0}
+2025-03-27 14:55:13,135 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:13,135 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:13,135 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,135 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:13,281 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:13,281 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:13,282 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,282 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:13,477 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:13,478 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:13,478 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:13,478 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:13,587 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:13,588 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:13,588 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,588 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29101388184.0}
+2025-03-27 14:55:28,136 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:28,136 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:28,137 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,137 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:28,287 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:28,287 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:28,288 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,288 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:28,459 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:28,459 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:28,459 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:28,460 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:28,573 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:28,574 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:28,574 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,574 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29111301512.0}
+2025-03-27 14:55:43,136 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:43,136 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:43,137 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,137 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:43,290 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:43,291 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:43,291 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,292 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:43,479 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:43,480 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:43,480 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:43,481 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:43,592 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:43,593 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:43,594 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,594 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29121102752.0}

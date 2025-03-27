@@ -223,3 +223,96 @@
 2025-03-27 14:54:43,677 - producer - INFO - Total metrics sent: 3557
 2025-03-27 14:54:43,677 - producer - INFO - Waiting 14.5 seconds until next collection
 2025-03-27 14:54:46,116 - pipeline - INFO - Process health - CPU: 3.0%, Memory: 50.1MB, Threads: 13
+2025-03-27 14:54:58,137 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:54:58,138 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:54:58,139 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,140 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:58,246 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:54:58,291 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:54:58,293 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:54:58,293 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,294 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:58,470 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:54:58,473 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:54:58,474 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:54:58,474 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:54:58,474 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:54:58,579 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:54:58,583 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:54:58,584 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:54:58,584 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:58,584 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29091531576.0}
+2025-03-27 14:54:58,691 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:54:58,692 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:54:58,692 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:55:13,135 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:13,135 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:13,135 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,135 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:13,240 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:55:13,281 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:13,281 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:13,282 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,282 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:13,474 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:55:13,477 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:13,478 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:13,478 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:13,478 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:13,583 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:55:13,587 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:13,588 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:13,588 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:13,588 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29101388184.0}
+2025-03-27 14:55:13,693 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:55:13,693 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:55:13,694 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:55:17,116 - pipeline - INFO - Process health - CPU: 2.0%, Memory: 53.1MB, Threads: 13
+2025-03-27 14:55:28,136 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:28,136 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:28,137 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,137 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:28,244 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:55:28,287 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:28,287 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:28,288 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,288 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:28,455 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:55:28,459 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:28,459 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:28,459 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:28,460 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:28,565 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:55:28,573 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:28,574 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:28,574 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:28,574 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29111301512.0}
+2025-03-27 14:55:28,678 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:55:28,679 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:55:28,679 - producer - INFO - Waiting 14.5 seconds until next collection
+2025-03-27 14:55:43,136 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:55:43,136 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:55:43,137 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,137 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:43,144 - consumer - INFO - Monitored 580 messages from ipmi_metrics in the last minute
+2025-03-27 14:55:43,243 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:55:43,290 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:55:43,291 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:55:43,291 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,292 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:55:43,323 - consumer - INFO - Monitored 13180 messages from node_metrics in the last minute
+2025-03-27 14:55:43,476 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:55:43,479 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:55:43,480 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:55:43,480 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:55:43,481 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:55:43,586 - consumer - INFO - Monitored 80 messages from dcgm_metrics in the last minute
+2025-03-27 14:55:43,586 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:55:43,592 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:55:43,593 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:55:43,594 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:55:43,594 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29121102752.0}
+2025-03-27 14:55:43,601 - consumer - INFO - Monitored 388 messages from slurm_metrics in the last minute
+2025-03-27 14:55:43,700 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:55:43,700 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:55:43,700 - producer - INFO - Waiting 14.4 seconds until next collection
