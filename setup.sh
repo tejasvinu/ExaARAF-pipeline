@@ -17,13 +17,14 @@ check_container() {
 mkdir -p prometheus/
 mkdir -p spark/apps
 mkdir -p spark/data
-mkdir -p cassandra
+mkdir -p telegraf
 mkdir -p python_pipeline/logs
 
 # Grant permissions if needed
 chmod -R 777 spark/apps
 chmod -R 777 spark/data
 chmod -R 777 python_pipeline/logs
+chmod -R 777 telegraf
 
 # Create checkpoint directories with proper permissions
 echo "Creating checkpoint directories..."
@@ -42,7 +43,7 @@ echo "Waiting for services to be ready..."
 sleep 20
 
 # Check core services
-for service in "prometheus" "zookeeper-1" "zookeeper-2" "zookeeper-3" "kafka-1" "kafka-2" "kafka-3" "cassandra-1" "cassandra-2" "cassandra-3"; do
+for service in "prometheus" "zookeeper-1" "zookeeper-2" "zookeeper-3" "kafka-1" "kafka-2" "kafka-3" "influxdb" "telegraf"; do
     if ! check_container "$service"; then
         echo "Error: $service is not running. Please check docker-compose logs"
         exit 1
@@ -63,22 +64,19 @@ while ! docker exec exaarafpipeline-kafka-1-1 kafka-topics --bootstrap-server ka
     ((retry_count++))
 done
 
-# Initialize Cassandra schema
-echo "Initializing Cassandra schema..."
+# Wait for InfluxDB to be ready and setup monitoring
+echo "Waiting for InfluxDB to be ready..."
 max_retries=10
 retry_count=0
-while ! docker exec -i exaarafpipeline-cassandra-1-1 cqlsh -e "describe keyspaces;" > /dev/null 2>&1; do
+while ! curl -s "http://localhost:8086/health" > /dev/null; do
     if [ $retry_count -ge $max_retries ]; then
-        echo "Error: Cassandra is not ready after $max_retries attempts"
+        echo "Error: InfluxDB is not ready after $max_retries attempts"
         exit 1
     fi
-    echo "Waiting for Cassandra to be ready... (attempt $((retry_count + 1))/$max_retries)"
+    echo "Waiting for InfluxDB to be ready... (attempt $((retry_count + 1))/$max_retries)"
     sleep 10
     ((retry_count++))
 done
-
-echo "Applying Cassandra schema..."
-docker exec -i exaarafpipeline-cassandra-1-1 cqlsh < cassandra/init.cql
 
 # Set up Python environment
 echo "Setting up Python environment..."

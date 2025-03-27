@@ -29,7 +29,7 @@ check_containers() {
     
     services=("prometheus" "zookeeper-1" "zookeeper-2" "zookeeper-3" 
              "kafka-1" "kafka-2" "kafka-3" 
-             "cassandra-1" "cassandra-2" "cassandra-3")
+             "influxdb" "telegraf")
              
     all_healthy=true
     
@@ -79,10 +79,13 @@ check_kafka() {
     done
 }
 
-# Check Cassandra status
-check_cassandra() {
-    echo -e "\n${YELLOW}Checking Cassandra cluster status...${NC}"
-    docker exec exaarafpipeline-cassandra-1-1 nodetool status
+# Check InfluxDB status
+check_influxdb() {
+    echo -e "\n${YELLOW}Checking InfluxDB status...${NC}"
+    curl -s "http://localhost:8086/health" | jq '.'
+
+    echo -e "\n${YELLOW}Checking InfluxDB metrics through Telegraf...${NC}"
+    docker exec exaarafpipeline-telegraf-1 telegraf --test
 }
 
 # Main execution
@@ -112,17 +115,17 @@ else
             --kafka)
                 check_kafka
                 ;;
-            --cassandra)
-                check_cassandra
+            --influxdb)
+                check_influxdb
                 ;;
             --all)
                 show_logs
                 check_kafka
-                check_cassandra
+                check_influxdb
                 ;;
             *)
                 echo -e "${RED}Unknown option: $arg${NC}"
-                echo "Available options: --logs, --kafka, --cassandra, --all"
+                echo "Available options: --logs, --kafka, --influxdb, --all"
                 exit 1
                 ;;
         esac

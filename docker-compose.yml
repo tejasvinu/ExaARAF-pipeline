@@ -367,116 +367,69 @@ services:
       retries: 3
       start_period: 20s
 
-  # Cassandra Cluster (3 nodes for reliability/scalability)
-  cassandra-1:
-    image: cassandra:4.0
+  # InfluxDB for time series metrics storage
+  influxdb:
+    image: influxdb:2.7
     ports:
-      # Expose CQL port only on one node for easier debugging if needed
-      - "9042:9042"
+      - "8086:8086" # Main API and UI port
     volumes:
-      # Only use the data volume, don't try to mount config files
-      - cassandra_data_1:/var/lib/cassandra
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
     environment:
-      # Define cluster name and seeds (point to itself and another node)
-      - CASSANDRA_CLUSTER_NAME=MetricsCluster
-      - CASSANDRA_SEEDS=cassandra-1,cassandra-2
-      - CASSANDRA_DC=dc1
-      - CASSANDRA_RACK=rack1
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=adminpassword123
+      - DOCKER_INFLUXDB_INIT_ORG=metrics_org
+      - DOCKER_INFLUXDB_INIT_BUCKET=metrics_bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
       - TZ=Asia/Kolkata
-      # Add JVM options directly via env var
-      - JVM_OPTS=-Xms2G -Xmx2G
     restart: unless-stopped
     networks:
       - pipeline-network
-    ulimits:
-      memlock: -1
-      nproc: 65536
-      nofile: 200000
     deploy:
       resources:
         limits:
-          memory: 6G
-        reservations:
           memory: 4G
+        reservations:
+          memory: 2G
     healthcheck:
-      test: ["CMD", "nodetool", "status"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8086/health"]
       interval: 30s
-      timeout: 15s
-      retries: 5
-      start_period: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
-  cassandra-2:
-    image: cassandra:4.0
-    ports:
-      - "9043:9042" # Changed from 9042 to 9043 (uncommon port)
+  # Telegraf for metrics processing and forwarding to InfluxDB
+  telegraf:
+    image: telegraf:1.28
     volumes:
-      - cassandra_data_2:/var/lib/cassandra
-    environment:
-      - CASSANDRA_CLUSTER_NAME=MetricsCluster
-      - CASSANDRA_SEEDS=cassandra-1,cassandra-2
-      - CASSANDRA_DC=dc1
-      - CASSANDRA_RACK=rack1
-      - TZ=Asia/Kolkata
-      - JVM_OPTS=-Xms2G -Xmx2G
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
     depends_on:
-      # Wait for seed node(s) to start
-      cassandra-1: { condition: service_started }
+      - influxdb
+      - kafka-1
+      - kafka-2
+      - kafka-3
+    environment:
+      - INFLUXDB_TOKEN=my-super-secret-auth-token
+      - INFLUXDB_ORG=metrics_org
+      - INFLUXDB_BUCKET=metrics_bucket
+      - INFLUXDB_URL=http://influxdb:8086
+      - TZ=Asia/Kolkata
     restart: unless-stopped
     networks:
       - pipeline-network
-    ulimits:
-      memlock: -1
-      nproc: 65536
-      nofile: 200000
     deploy:
       resources:
         limits:
-          memory: 6G
+          memory: 1G
         reservations:
-          memory: 4G
+          memory: 512M
     healthcheck:
-      test: ["CMD", "nodetool", "status"]
+      test: ["CMD", "telegraf", "--test"]
       interval: 30s
-      timeout: 15s
-      retries: 5
-      start_period: 120s
-
-  cassandra-3:
-    image: cassandra:4.0
-    ports:
-      - "9044:9042" # Changed from 9042 to 9044 (uncommon port)
-    volumes:
-      - cassandra_data_3:/var/lib/cassandra
-    environment:
-      - CASSANDRA_CLUSTER_NAME=MetricsCluster
-      - CASSANDRA_SEEDS=cassandra-1,cassandra-2
-      - CASSANDRA_DC=dc1
-      - CASSANDRA_RACK=rack1
-      - TZ=Asia/Kolkata
-      - JVM_OPTS=-Xms2G -Xmx2G
-    depends_on:
-      # Wait for seed node(s) to start
-      cassandra-1: { condition: service_started }
-      cassandra-2: { condition: service_started }
-    restart: unless-stopped
-    networks:
-      - pipeline-network
-    ulimits:
-      memlock: -1
-      nproc: 65536
-      nofile: 200000
-    deploy:
-      resources:
-        limits:
-          memory: 6G
-        reservations:
-          memory: 4G
-    healthcheck:
-      test: ["CMD", "nodetool", "status"]
-      interval: 30s
-      timeout: 15s
-      retries: 5
-      start_period: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
 networks:
   pipeline-network:
@@ -490,18 +443,17 @@ volumes:
   zookeeper_log_2:
   zookeeper_data_3:
   zookeeper_log_3:
-  kafka_logs_1: # Changed from single kafka_logs
+  kafka_logs_1:
   kafka_data_1:
   kafka_logs_2:
   kafka_data_2:
   kafka_logs_3:
   kafka_data_3:
-  cassandra_data_1:
-  cassandra_data_2:
-  cassandra_data_3:
+  influxdb_data:
+  influxdb_config:
 
-# Security Note: This configuration uses PLAINTEXT communication between services (Kafka, ZK, Cassandra).
-# For production environments, strongly consider enabling TLS/SSL encryption and authentication (SASL for Kafka, Auth for Cassandra/ZK).
+# Security Note: This configuration uses PLAINTEXT communication between services (Kafka, ZK).
+# For production environments, strongly consider enabling TLS/SSL encryption and authentication.
 
 # Logging Note: Container logs will use the default Docker logging driver (usually json-file).
-# Configure Docker daemon's logging options (e.g., max-size, max-file) or use a centralized logging driver (fluentd, loki, etc.) for production.
+# Configure Docker daemon's logging options (e.g., max-size, max-file) or use a centralized logging driver for production.
