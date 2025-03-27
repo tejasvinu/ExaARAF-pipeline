@@ -1,533 +1,225 @@
-2025-03-27 14:35:22,057 - pipeline - INFO - Starting metrics pipeline
-2025-03-27 14:35:22,058 - consumer - INFO - Initialized consumer with bootstrap servers: localhost:9092,localhost:9097,localhost:9095
-2025-03-27 14:35:22,058 - pipeline - INFO - Pipeline started successfully
-2025-03-27 14:35:22,058 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,059 - consumer - INFO - Started monitoring thread for ipmi
-2025-03-27 14:35:22,059 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:22,060 - consumer - INFO - Started monitoring thread for node
-2025-03-27 14:35:22,061 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:22,061 - kafka.conn - INFO - Broker version identified as 2.6
-2025-03-27 14:35:22,061 - consumer - INFO - Started monitoring thread for dcgm
-2025-03-27 14:35:22,063 - kafka.conn - INFO - Broker version identified as 2.6
-2025-03-27 14:35:22,063 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,063 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,065 - kafka.conn - INFO - Broker version identified as 2.6
-2025-03-27 14:35:22,065 - consumer - INFO - Started monitoring thread for slurm
-2025-03-27 14:35:22,065 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:22,065 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:22,067 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9092 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:22,067 - scraper - INFO - Initialized scraper with Prometheus URL: http://localhost:9099
-2025-03-27 14:35:22,068 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('ipmi_metrics',)
-2025-03-27 14:35:22,068 - kafka.conn - INFO - Broker version identified as 2.6
-2025-03-27 14:35:22,070 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('node_metrics',)
-2025-03-27 14:35:22,070 - producer - INFO - Initialized Kafka producer with bootstrap servers: localhost:9092,localhost:9097,localhost:9095
-2025-03-27 14:35:22,070 - consumer - INFO - Started monitoring ipmi_metrics
-2025-03-27 14:35:22,070 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9097 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,071 - kafka.conn - INFO - Broker version identified as 2.6
-2025-03-27 14:35:22,071 - consumer - INFO - Started monitoring node_metrics
-2025-03-27 14:35:22,071 - producer - INFO - Starting continuous production every 15 seconds
-2025-03-27 14:35:22,072 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('dcgm_metrics',)
-2025-03-27 14:35:22,072 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:22,073 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:22,073 - consumer - INFO - Started monitoring dcgm_metrics
-2025-03-27 14:35:22,074 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('slurm_metrics',)
-2025-03-27 14:35:22,075 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:22,075 - consumer - INFO - Started monitoring slurm_metrics
-2025-03-27 14:35:22,076 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
-2025-03-27 14:35:22,077 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,079 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,079 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:35:22,080 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:22,080 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:22,080 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
-2025-03-27 14:35:22,080 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:35:22,081 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:22,081 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:22,084 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,085 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,086 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
-2025-03-27 14:35:22,179 - kafka.cluster - INFO - Group coordinator for metrics-monitor-ipmi is BrokerMetadata(nodeId='coordinator-2', host='localhost', port=9097, rack=None)
-2025-03-27 14:35:22,181 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:22,181 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,182 - kafka.cluster - INFO - Group coordinator for metrics-monitor-node is BrokerMetadata(nodeId='coordinator-3', host='localhost', port=9095, rack=None)
-2025-03-27 14:35:22,187 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:35:22,199 - kafka.coordinator - INFO - Discovered coordinator coordinator-2 for group metrics-monitor-ipmi
-2025-03-27 14:35:22,199 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
-2025-03-27 14:35:22,200 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:22,201 - kafka.coordinator - INFO - Discovered coordinator coordinator-3 for group metrics-monitor-node
-2025-03-27 14:35:22,205 - kafka.coordinator - INFO - Starting new heartbeat thread
-2025-03-27 14:35:22,210 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
-2025-03-27 14:35:22,211 - kafka.coordinator - INFO - Starting new heartbeat thread
-2025-03-27 14:35:22,212 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-ipmi
-2025-03-27 14:35:22,213 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-node
-2025-03-27 14:35:22,214 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,214 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:22,242 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:35:22,242 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:35:22,242 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:22,243 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:22,265 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:22,294 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:22,295 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:22,296 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:22,312 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,313 - kafka.cluster - INFO - Group coordinator for metrics-monitor-slurm is BrokerMetadata(nodeId='coordinator-2', host='localhost', port=9097, rack=None)
-2025-03-27 14:35:22,314 - kafka.coordinator - INFO - Discovered coordinator coordinator-2 for group metrics-monitor-slurm
-2025-03-27 14:35:22,314 - kafka.cluster - INFO - Group coordinator for metrics-monitor-dcgm is BrokerMetadata(nodeId='coordinator-3', host='localhost', port=9095, rack=None)
-2025-03-27 14:35:22,315 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:22,315 - kafka.coordinator - INFO - Starting new heartbeat thread
-2025-03-27 14:35:22,316 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,316 - kafka.coordinator - INFO - Discovered coordinator coordinator-3 for group metrics-monitor-dcgm
-2025-03-27 14:35:22,319 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-slurm
-2025-03-27 14:35:22,320 - kafka.coordinator - INFO - Starting new heartbeat thread
-2025-03-27 14:35:22,323 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:22,323 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-dcgm
-2025-03-27 14:35:22,326 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:22,327 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:22,329 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:22,397 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:35:22,400 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:35:22,401 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:35:22,401 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:35:22,402 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:35:22,418 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-node
-2025-03-27 14:35:22,420 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-ipmi
-2025-03-27 14:35:22,426 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-slurm
-2025-03-27 14:35:22,430 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-dcgm
-2025-03-27 14:35:22,505 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:35:22,509 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:35:22,509 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:35:22,510 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:22,510 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28319340888.0}
-2025-03-27 14:35:22,614 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:35:22,615 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:35:22,616 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:35:23,059 - pipeline - INFO - Process health - CPU: 16.0%, Memory: 41.6MB, Threads: 13
-2025-03-27 14:35:25,421 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
-2025-03-27 14:35:25,424 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
-2025-03-27 14:35:25,426 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-node with generation 24
-2025-03-27 14:35:25,427 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='node_metrics', partition=0), TopicPartition(topic='node_metrics', partition=1), TopicPartition(topic='node_metrics', partition=2), TopicPartition(topic='node_metrics', partition=3)]
-2025-03-27 14:35:25,427 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='node_metrics', partition=1), TopicPartition(topic='node_metrics', partition=2), TopicPartition(topic='node_metrics', partition=3), TopicPartition(topic='node_metrics', partition=0)} for group metrics-monitor-node
-2025-03-27 14:35:25,437 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
-2025-03-27 14:35:25,449 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
-2025-03-27 14:35:25,449 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-ipmi with generation 24
-2025-03-27 14:35:25,449 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-slurm with generation 24
-2025-03-27 14:35:25,450 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:25,450 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='ipmi_metrics', partition=0)]
-2025-03-27 14:35:25,451 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='slurm_metrics', partition=0)]
-2025-03-27 14:35:25,452 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-dcgm with generation 22
-2025-03-27 14:35:25,452 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
-2025-03-27 14:35:25,452 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='ipmi_metrics', partition=0)} for group metrics-monitor-ipmi
-2025-03-27 14:35:25,452 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='slurm_metrics', partition=0)} for group metrics-monitor-slurm
-2025-03-27 14:35:25,453 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='dcgm_metrics', partition=0)]
-2025-03-27 14:35:25,454 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:25,455 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='dcgm_metrics', partition=0)} for group metrics-monitor-dcgm
-2025-03-27 14:35:25,456 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
-2025-03-27 14:35:25,457 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
-2025-03-27 14:35:25,457 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
-2025-03-27 14:35:25,458 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
-2025-03-27 14:35:25,458 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
-2025-03-27 14:35:37,079 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:35:37,081 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:35:37,081 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:37,081 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:37,187 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:35:37,273 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:35:37,273 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:35:37,273 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:37,273 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:37,432 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:35:37,435 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:35:37,436 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:35:37,436 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:35:37,436 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:35:37,541 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:35:37,544 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:35:37,544 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:35:37,545 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:37,546 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28329190536.0}
-2025-03-27 14:35:37,651 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:35:37,651 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:35:37,651 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:35:52,077 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:35:52,078 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:35:52,080 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:52,080 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:52,188 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:35:52,233 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:35:52,234 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:35:52,234 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:52,234 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:35:52,404 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:35:52,408 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:35:52,409 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:35:52,410 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:35:52,411 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:35:52,516 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:35:52,521 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:35:52,522 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:35:52,522 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:35:52,522 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28339213800.0}
-2025-03-27 14:35:52,628 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:35:52,628 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:35:52,629 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:35:54,059 - pipeline - INFO - Process health - CPU: 3.0%, Memory: 45.3MB, Threads: 13
-2025-03-27 14:36:07,076 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:36:07,076 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:36:07,076 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:07,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:07,182 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:36:07,221 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:36:07,222 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:36:07,222 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:07,222 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:07,386 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:36:07,389 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:36:07,389 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:36:07,389 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:36:07,390 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:36:07,494 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:36:07,498 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:36:07,498 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:36:07,499 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:07,499 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28349056648.0}
-2025-03-27 14:36:07,603 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:36:07,604 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:36:07,604 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:36:22,076 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:36:22,077 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:36:22,078 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:22,078 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:22,086 - consumer - INFO - Monitored 639 messages from ipmi_metrics in the last minute
-2025-03-27 14:36:22,184 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:36:22,221 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:36:22,222 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:36:22,223 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:22,223 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:22,254 - consumer - INFO - Monitored 13235 messages from node_metrics in the last minute
-2025-03-27 14:36:22,392 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:36:22,395 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:36:22,395 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:36:22,396 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:36:22,396 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:36:22,500 - consumer - INFO - Monitored 100 messages from dcgm_metrics in the last minute
-2025-03-27 14:36:22,501 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:36:22,504 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:36:22,505 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:36:22,506 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:22,506 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28358944968.0}
-2025-03-27 14:36:22,512 - consumer - INFO - Monitored 448 messages from slurm_metrics in the last minute
-2025-03-27 14:36:22,611 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:36:22,611 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:36:22,611 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:36:25,059 - pipeline - INFO - Process health - CPU: 2.0%, Memory: 47.9MB, Threads: 13
-2025-03-27 14:36:37,075 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:36:37,076 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:36:37,076 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:37,076 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:37,182 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:36:37,221 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:36:37,222 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:36:37,222 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:37,223 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:37,391 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:36:37,395 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:36:37,395 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:36:37,395 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:36:37,396 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:36:37,501 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:36:37,506 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:36:37,506 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:36:37,507 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:37,507 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28368977144.0}
-2025-03-27 14:36:37,612 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:36:37,612 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:36:37,613 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:36:52,075 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:36:52,076 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:36:52,077 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:52,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:52,183 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:36:52,226 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:36:52,227 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:36:52,228 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:52,229 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:36:52,423 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:36:52,426 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:36:52,426 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:36:52,427 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:36:52,427 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:36:52,533 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:36:52,537 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:36:52,538 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:36:52,539 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:36:52,540 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28378927952.0}
-2025-03-27 14:36:52,648 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:36:52,649 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:36:52,649 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:36:56,059 - pipeline - INFO - Process health - CPU: 3.0%, Memory: 50.4MB, Threads: 13
-2025-03-27 14:37:07,088 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:37:07,097 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:37:07,323 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:07,340 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:07,452 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:37:07,524 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:37:07,525 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:37:07,526 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:07,527 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:07,780 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:37:07,785 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:37:07,785 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:37:07,786 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:37:07,786 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:37:07,895 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:37:07,901 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:37:07,902 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:37:07,903 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:07,903 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28388743680.0}
-2025-03-27 14:37:08,011 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:37:08,013 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:37:08,013 - producer - INFO - Waiting 14.1 seconds until next collection
-2025-03-27 14:37:22,076 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:37:22,077 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:37:22,077 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:22,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:22,183 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:37:22,188 - consumer - INFO - Monitored 666 messages from ipmi_metrics in the last minute
-2025-03-27 14:37:22,224 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:37:22,225 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:37:22,225 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:22,225 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:22,353 - consumer - INFO - Monitored 13279 messages from node_metrics in the last minute
-2025-03-27 14:37:22,388 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:37:22,391 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:37:22,392 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:37:22,392 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:37:22,392 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:37:22,496 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:37:22,501 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:37:22,502 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:37:22,502 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:22,502 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28398642216.0}
-2025-03-27 14:37:22,606 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:37:22,607 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:37:22,607 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:37:22,609 - consumer - INFO - Monitored 425 messages from slurm_metrics in the last minute
-2025-03-27 14:37:23,597 - consumer - INFO - Monitored 80 messages from dcgm_metrics in the last minute
-2025-03-27 14:37:27,059 - pipeline - INFO - Process health - CPU: 0.0%, Memory: 50.5MB, Threads: 13
-2025-03-27 14:37:37,076 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:37:37,077 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:37:37,077 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:37,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:37,183 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:37:37,218 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:37:37,218 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:37:37,219 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:37,219 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:37,397 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:37:37,400 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:37:37,400 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:37:37,401 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:37:37,401 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:37:37,505 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:37:37,509 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:37:37,509 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:37:37,509 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:37,509 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28408488888.0}
-2025-03-27 14:37:37,614 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:37:37,614 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:37:37,615 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:37:52,075 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:37:52,076 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:37:52,077 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:52,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:52,183 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:37:52,224 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:37:52,226 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:37:52,226 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:52,227 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:37:52,394 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:37:52,398 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:37:52,399 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:37:52,399 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:37:52,399 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:37:52,505 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:37:52,511 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:37:52,511 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:37:52,512 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:37:52,513 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28418343456.0}
-2025-03-27 14:37:52,620 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:37:52,621 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:37:52,621 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:37:58,059 - pipeline - INFO - Process health - CPU: 1.0%, Memory: 51.4MB, Threads: 13
-2025-03-27 14:38:07,074 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:38:07,081 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:38:07,091 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:07,092 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:07,197 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:38:07,236 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:38:07,237 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:38:07,237 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:07,237 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:07,395 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:38:07,398 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:38:07,399 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:38:07,399 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:38:07,399 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:38:07,505 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:38:07,508 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:38:07,509 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:38:07,509 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:07,509 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28428121352.0}
-2025-03-27 14:38:07,614 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:38:07,614 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:38:07,615 - producer - INFO - Waiting 14.5 seconds until next collection
-2025-03-27 14:38:22,076 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:38:22,076 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:38:22,076 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:22,077 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:22,183 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:38:22,220 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:38:22,225 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:38:22,226 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:22,226 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:22,420 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:38:22,423 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:38:22,423 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:38:22,423 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:38:22,423 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:38:22,453 - consumer - INFO - Monitored 13280 messages from node_metrics in the last minute
-2025-03-27 14:38:22,530 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:38:22,601 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:38:22,602 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:38:22,602 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:22,603 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28438169192.0}
-2025-03-27 14:38:22,708 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:38:22,708 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:38:22,709 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:38:22,710 - consumer - INFO - Monitored 388 messages from slurm_metrics in the last minute
-2025-03-27 14:38:23,291 - consumer - INFO - Monitored 580 messages from ipmi_metrics in the last minute
-2025-03-27 14:38:23,631 - consumer - INFO - Monitored 80 messages from dcgm_metrics in the last minute
-2025-03-27 14:38:29,059 - pipeline - INFO - Process health - CPU: 1.0%, Memory: 51.6MB, Threads: 13
-2025-03-27 14:38:37,074 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:38:37,075 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:38:37,075 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:37,075 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:37,188 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:38:37,226 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:38:37,227 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:38:37,227 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:37,228 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:37,389 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:38:37,394 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:38:37,395 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:38:37,399 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:38:37,401 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:38:37,507 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:38:37,511 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:38:37,511 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:38:37,513 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:37,513 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28448030784.0}
-2025-03-27 14:38:37,618 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:38:37,674 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:38:37,675 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:38:52,094 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:38:52,095 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:38:52,096 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:52,097 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:52,202 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:38:52,244 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:38:52,244 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:38:52,245 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:52,245 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:38:52,411 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:38:52,414 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:38:52,414 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:38:52,414 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:38:52,415 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:38:52,519 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:38:52,624 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:38:52,624 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:38:52,625 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:38:52,625 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28457889856.0}
-2025-03-27 14:38:52,730 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:38:52,730 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:38:52,731 - producer - INFO - Waiting 14.3 seconds until next collection
-2025-03-27 14:39:00,059 - pipeline - INFO - Process health - CPU: 1.0%, Memory: 51.5MB, Threads: 13
-2025-03-27 14:39:07,075 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:39:07,078 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:39:07,079 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:07,080 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:07,187 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:39:07,253 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:39:07,254 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:39:07,255 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:07,255 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:07,447 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:39:07,453 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:39:07,453 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:39:07,454 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:39:07,454 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:39:07,558 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:39:07,562 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:39:07,567 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:39:07,568 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:07,569 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28467727432.0}
-2025-03-27 14:39:07,675 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:39:07,675 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:39:07,676 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:39:22,074 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:39:22,075 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:39:22,076 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:22,076 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:22,184 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:39:22,221 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:39:22,222 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:39:22,223 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:22,224 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:22,411 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:39:22,415 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:39:22,416 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:39:22,417 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:39:22,417 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:39:22,524 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:39:22,528 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:39:22,529 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:39:22,529 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:22,530 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28477693528.0}
-2025-03-27 14:39:22,552 - consumer - INFO - Monitored 13281 messages from node_metrics in the last minute
-2025-03-27 14:39:22,637 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:39:22,637 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:39:22,637 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:39:23,745 - consumer - INFO - Monitored 388 messages from slurm_metrics in the last minute
-2025-03-27 14:39:24,288 - consumer - INFO - Monitored 580 messages from ipmi_metrics in the last minute
-2025-03-27 14:39:24,726 - consumer - INFO - Monitored 80 messages from dcgm_metrics in the last minute
-2025-03-27 14:39:31,059 - pipeline - INFO - Process health - CPU: 2.0%, Memory: 51.7MB, Threads: 13
-2025-03-27 14:39:37,074 - scraper - INFO - Scrape completed for ipmi:
-2025-03-27 14:39:37,075 - scraper - INFO -   - Metrics collected: 145
-2025-03-27 14:39:37,075 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:37,076 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:37,182 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
-2025-03-27 14:39:37,223 - scraper - INFO - Scrape completed for node:
-2025-03-27 14:39:37,224 - scraper - INFO -   - Metrics collected: 3295
-2025-03-27 14:39:37,225 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:37,225 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
-2025-03-27 14:39:37,412 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
-2025-03-27 14:39:37,415 - scraper - INFO - Scrape completed for dcgm:
-2025-03-27 14:39:37,415 - scraper - INFO -   - Metrics collected: 20
-2025-03-27 14:39:37,416 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
-2025-03-27 14:39:37,416 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
-2025-03-27 14:39:37,521 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
-2025-03-27 14:39:37,525 - scraper - INFO - Scrape completed for slurm:
-2025-03-27 14:39:37,525 - scraper - INFO -   - Metrics collected: 97
-2025-03-27 14:39:37,525 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
-2025-03-27 14:39:37,526 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 28487577872.0}
-2025-03-27 14:39:37,632 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
-2025-03-27 14:39:37,637 - producer - INFO - Total metrics sent: 3557
-2025-03-27 14:39:37,637 - producer - INFO - Waiting 14.4 seconds until next collection
-2025-03-27 14:39:45,386 - pipeline - INFO - Initiating pipeline shutdown...
-2025-03-27 14:39:45,387 - kafka.producer.kafka - INFO - Closing the Kafka producer with 30 secs timeout.
-2025-03-27 14:39:45,388 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=2 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
-2025-03-27 14:39:45,388 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
-2025-03-27 14:39:45,389 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=3 host=localhost:9095 <connected> [IPv4 ('127.0.0.1', 9095)]>: Closing connection. 
-2025-03-27 14:39:45,390 - pipeline - INFO - Pipeline shutdown complete
+2025-03-27 14:53:43,113 - pipeline - INFO - Starting metrics pipeline
+2025-03-27 14:53:43,114 - consumer - INFO - Initialized consumer with bootstrap servers: localhost:9092,localhost:9097,localhost:9095
+2025-03-27 14:53:43,115 - pipeline - INFO - Pipeline started successfully
+2025-03-27 14:53:43,116 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,116 - consumer - INFO - Started monitoring thread for ipmi
+2025-03-27 14:53:43,116 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:43,117 - consumer - INFO - Started monitoring thread for node
+2025-03-27 14:53:43,118 - kafka.conn - INFO - Broker version identified as 2.6
+2025-03-27 14:53:43,118 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,119 - consumer - INFO - Started monitoring thread for dcgm
+2025-03-27 14:53:43,119 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,120 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,120 - consumer - INFO - Started monitoring thread for slurm
+2025-03-27 14:53:43,120 - kafka.conn - INFO - Broker version identified as 2.6
+2025-03-27 14:53:43,121 - scraper - INFO - Initialized scraper with Prometheus URL: http://localhost:9099
+2025-03-27 14:53:43,123 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:43,124 - kafka.conn - INFO - Broker version identified as 2.6
+2025-03-27 14:53:43,124 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:43,124 - kafka.conn - INFO - Broker version identified as 2.6
+2025-03-27 14:53:43,124 - producer - INFO - Initialized Kafka producer with bootstrap servers: localhost:9092,localhost:9097,localhost:9095
+2025-03-27 14:53:43,125 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9097 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,126 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('ipmi_metrics',)
+2025-03-27 14:53:43,126 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9097 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,127 - kafka.conn - INFO - Broker version identified as 2.6
+2025-03-27 14:53:43,127 - producer - INFO - Starting continuous production every 15 seconds
+2025-03-27 14:53:43,127 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('node_metrics',)
+2025-03-27 14:53:43,127 - consumer - INFO - Started monitoring ipmi_metrics
+2025-03-27 14:53:43,128 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('dcgm_metrics',)
+2025-03-27 14:53:43,128 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9095 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:43,132 - consumer - INFO - Started monitoring node_metrics
+2025-03-27 14:53:43,134 - consumer - INFO - Started monitoring dcgm_metrics
+2025-03-27 14:53:43,135 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('slurm_metrics',)
+2025-03-27 14:53:43,137 - consumer - INFO - Started monitoring slurm_metrics
+2025-03-27 14:53:43,136 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:43,138 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,139 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:43,139 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:43,138 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:53:43,140 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,140 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2025-03-27 14:53:43,140 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,141 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-0 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
+2025-03-27 14:53:43,140 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:53:43,141 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:43,142 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:53:43,145 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,146 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,147 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-1 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
+2025-03-27 14:53:43,241 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,242 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:43,243 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,243 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-2 host=localhost:9097 <connected> [IPv4 ('127.0.0.1', 9097)]>: Closing connection. 
+2025-03-27 14:53:43,244 - kafka.cluster - INFO - Group coordinator for metrics-monitor-ipmi is BrokerMetadata(nodeId='coordinator-2', host='localhost', port=9097, rack=None)
+2025-03-27 14:53:43,244 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=bootstrap-1 host=localhost:9095 <connected> [IPv4 ('127.0.0.1', 9095)]>: Closing connection. 
+2025-03-27 14:53:43,244 - kafka.cluster - INFO - Group coordinator for metrics-monitor-node is BrokerMetadata(nodeId='coordinator-3', host='localhost', port=9095, rack=None)
+2025-03-27 14:53:43,245 - kafka.coordinator - INFO - Discovered coordinator coordinator-2 for group metrics-monitor-ipmi
+2025-03-27 14:53:43,246 - kafka.coordinator - INFO - Discovered coordinator coordinator-3 for group metrics-monitor-node
+2025-03-27 14:53:43,246 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-03-27 14:53:43,246 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-03-27 14:53:43,247 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:53:43,247 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-node
+2025-03-27 14:53:43,248 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-ipmi
+2025-03-27 14:53:43,249 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:43,249 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,292 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:53:43,293 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:53:43,293 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:43,293 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:53:43,316 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:43,343 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:43,348 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:43,349 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,350 - kafka.cluster - INFO - Group coordinator for metrics-monitor-slurm is BrokerMetadata(nodeId='coordinator-2', host='localhost', port=9097, rack=None)
+2025-03-27 14:53:43,350 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,350 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:43,350 - kafka.coordinator - INFO - Discovered coordinator coordinator-2 for group metrics-monitor-slurm
+2025-03-27 14:53:43,351 - kafka.cluster - INFO - Group coordinator for metrics-monitor-dcgm is BrokerMetadata(nodeId='coordinator-3', host='localhost', port=9095, rack=None)
+2025-03-27 14:53:43,351 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:43,352 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-03-27 14:53:43,352 - kafka.coordinator - INFO - Discovered coordinator coordinator-3 for group metrics-monitor-dcgm
+2025-03-27 14:53:43,356 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-slurm
+2025-03-27 14:53:43,357 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-03-27 14:53:43,359 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:43,361 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group metrics-monitor-dcgm
+2025-03-27 14:53:43,362 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:43,448 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:53:43,452 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-ipmi
+2025-03-27 14:53:43,452 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-node
+2025-03-27 14:53:43,460 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:43,452 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:53:43,463 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=coordinator-3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:43,463 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:53:43,464 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:53:43,466 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:53:43,563 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-slurm
+2025-03-27 14:53:43,564 - kafka.coordinator - INFO - (Re-)joining group metrics-monitor-dcgm
+2025-03-27 14:53:43,573 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:53:43,576 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:53:43,576 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:53:43,577 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:43,577 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29041944328.0}
+2025-03-27 14:53:43,684 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:53:43,684 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:53:43,685 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:53:44,117 - pipeline - INFO - Process health - CPU: 16.0%, Memory: 43.5MB, Threads: 13
+2025-03-27 14:53:46,465 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-03-27 14:53:46,466 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-03-27 14:53:46,470 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-ipmi with generation 30
+2025-03-27 14:53:46,471 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-node with generation 30
+2025-03-27 14:53:46,471 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='ipmi_metrics', partition=0)]
+2025-03-27 14:53:46,471 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='node_metrics', partition=0), TopicPartition(topic='node_metrics', partition=1), TopicPartition(topic='node_metrics', partition=2), TopicPartition(topic='node_metrics', partition=3)]
+2025-03-27 14:53:46,472 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='ipmi_metrics', partition=0)} for group metrics-monitor-ipmi
+2025-03-27 14:53:46,472 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='node_metrics', partition=2), TopicPartition(topic='node_metrics', partition=3), TopicPartition(topic='node_metrics', partition=0), TopicPartition(topic='node_metrics', partition=1)} for group metrics-monitor-node
+2025-03-27 14:53:46,473 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <connecting> [IPv4 ('127.0.0.1', 9097)]>: connecting to localhost:9097 [('127.0.0.1', 9097) IPv4]
+2025-03-27 14:53:46,474 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:46,474 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=2 host=localhost:9097 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9097)]>: Connection complete.
+2025-03-27 14:53:46,475 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:46,476 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:46,478 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:46,566 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-03-27 14:53:46,567 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-03-27 14:53:46,569 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-slurm with generation 30
+2025-03-27 14:53:46,570 - kafka.coordinator - INFO - Successfully joined group metrics-monitor-dcgm with generation 28
+2025-03-27 14:53:46,570 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='slurm_metrics', partition=0)]
+2025-03-27 14:53:46,571 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='dcgm_metrics', partition=0)]
+2025-03-27 14:53:46,571 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='slurm_metrics', partition=0)} for group metrics-monitor-slurm
+2025-03-27 14:53:46,571 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='dcgm_metrics', partition=0)} for group metrics-monitor-dcgm
+2025-03-27 14:53:46,573 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-03-27 14:53:46,573 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <connecting> [IPv4 ('127.0.0.1', 9095)]>: connecting to localhost:9095 [('127.0.0.1', 9095) IPv4]
+2025-03-27 14:53:46,574 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=1 host=localhost:9092 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-03-27 14:53:46,574 - kafka.conn - INFO - <BrokerConnection client_id=kafka-python-2.1.2, node_id=3 host=localhost:9095 <checking_api_versions_send> [IPv4 ('127.0.0.1', 9095)]>: Connection complete.
+2025-03-27 14:53:58,139 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:53:58,140 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:53:58,141 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:58,143 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:53:58,249 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:53:58,289 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:53:58,291 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:53:58,291 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:58,292 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:53:58,462 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:53:58,466 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:53:58,467 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:53:58,468 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:53:58,469 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:53:58,573 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:53:58,578 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:53:58,581 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:53:58,582 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:53:58,583 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29051854840.0}
+2025-03-27 14:53:58,688 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:53:58,689 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:53:58,689 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:54:13,137 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:54:13,137 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:54:13,138 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:13,138 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:13,245 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:54:13,290 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:54:13,292 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:54:13,292 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:13,293 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:13,473 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:54:13,477 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:54:13,478 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:54:13,479 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:54:13,480 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:54:13,585 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:54:13,589 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:54:13,590 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:54:13,590 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:13,590 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29061676056.0}
+2025-03-27 14:54:13,694 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:54:13,695 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:54:13,695 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:54:15,117 - pipeline - INFO - Process health - CPU: 3.0%, Memory: 47.4MB, Threads: 13
+2025-03-27 14:54:28,141 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:54:28,142 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:54:28,142 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:28,143 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:28,254 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:54:28,324 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:54:28,325 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:54:28,325 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:28,326 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:28,533 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:54:28,539 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:54:28,540 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:54:28,540 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:54:28,540 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:54:28,649 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:54:28,653 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:54:28,654 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:54:28,654 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:28,654 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29071619280.0}
+2025-03-27 14:54:28,761 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:54:28,761 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:54:28,761 - producer - INFO - Waiting 14.4 seconds until next collection
+2025-03-27 14:54:43,135 - scraper - INFO - Scrape completed for ipmi:
+2025-03-27 14:54:43,136 - scraper - INFO -   - Metrics collected: 145
+2025-03-27 14:54:43,136 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:43,137 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:43,144 - consumer - INFO - Monitored 639 messages from ipmi_metrics in the last minute
+2025-03-27 14:54:43,242 - producer - INFO - Successfully sent 145 metrics to topic ipmi_metrics
+2025-03-27 14:54:43,286 - scraper - INFO - Scrape completed for node:
+2025-03-27 14:54:43,286 - scraper - INFO -   - Metrics collected: 3295
+2025-03-27 14:54:43,287 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:43,287 - scraper - INFO -   - Value range: {'min': -125000.0, 'max': 1.8446744073709552e+19}
+2025-03-27 14:54:43,318 - consumer - INFO - Monitored 13235 messages from node_metrics in the last minute
+2025-03-27 14:54:43,455 - producer - INFO - Successfully sent 3295 metrics to topic node_metrics
+2025-03-27 14:54:43,459 - scraper - INFO - Scrape completed for dcgm:
+2025-03-27 14:54:43,460 - scraper - INFO -   - Metrics collected: 20
+2025-03-27 14:54:43,460 - scraper - INFO -   - Sample metrics: DCGM_FI_DEV_DEC_UTIL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, DCGM_FI_DEV_FB_USED, DCGM_FI_DEV_GPU_TEMP
+2025-03-27 14:54:43,460 - scraper - INFO -   - Value range: {'min': 0.0, 'max': 12186.0}
+2025-03-27 14:54:43,565 - consumer - INFO - Monitored 100 messages from dcgm_metrics in the last minute
+2025-03-27 14:54:43,566 - producer - INFO - Successfully sent 20 metrics to topic dcgm_metrics
+2025-03-27 14:54:43,570 - scraper - INFO - Scrape completed for slurm:
+2025-03-27 14:54:43,570 - scraper - INFO -   - Metrics collected: 97
+2025-03-27 14:54:43,571 - scraper - INFO -   - Sample metrics: go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds, go_gc_duration_seconds
+2025-03-27 14:54:43,571 - scraper - INFO -   - Value range: {'min': -1.0, 'max': 29081498776.0}
+2025-03-27 14:54:43,586 - consumer - INFO - Monitored 448 messages from slurm_metrics in the last minute
+2025-03-27 14:54:43,677 - producer - INFO - Successfully sent 97 metrics to topic slurm_metrics
+2025-03-27 14:54:43,677 - producer - INFO - Total metrics sent: 3557
+2025-03-27 14:54:43,677 - producer - INFO - Waiting 14.5 seconds until next collection
+2025-03-27 14:54:46,116 - pipeline - INFO - Process health - CPU: 3.0%, Memory: 50.1MB, Threads: 13
